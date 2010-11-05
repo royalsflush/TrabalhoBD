@@ -1,0 +1,25 @@
+/*
+CSS template for TrabBD
+Last updated: 05/11/10 by Luiza
+*/
+
+#header {	
+	background-color: red;
+	color: white;
+	height: 250px;
+}
+
+#menu {
+	background-color: blue;
+	color: white;
+	height: 80px;
+}
+
+#main {
+	background-color: green;
+	min-height: 250px
+}
+
+.center {
+	text-align: center;
+}
