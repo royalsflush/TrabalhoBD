@@ -1,3 +1,21 @@
-TrabBD v 0.0
+TrabBD v 0.2
+Important note: text requisites will be maintained on Google Docs
 
-E, nao tem nada implementado ainda
+What's already done:
+ - Database interface
+ - Template XHTML/CSS that will be the base for all pages (at least for now) 
+
+What's half way:
+ - Page class: I still have to test it with real content
+ - Menu class: Just begun it
+
+What we haven't started yet (lots of stuff):
+ - Photos module
+ - Videos module
+ - Gallery module
+ - Layout module
+ - User Management Module
+
+What would be cool but's not so important
+ - Page edit interface
+ - Menu edit interface

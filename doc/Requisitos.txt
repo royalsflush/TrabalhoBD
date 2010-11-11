@@ -1,59 +1,0 @@
-(Título)
-
-Definição do problema:
-Fazer/manter um site para um usuário típico é muito complexo e requer muito conhecimento técnico. Ferramentas como o Joomla! e o Drupal amenizam o problema, permitindo que o usuário não mexa no código em si, mas não o resolvem por completo – ambas têm uma curva de aprendizado um pouco íngreme. Existem outras ferramentas que fazem essa abstração, mas são muito pouco flexíveis - o google sites é um bom exemplo.
-
-Objetivo final:
-Construir uma ferramenta que prioriza a simplicidade para criar e manter um site e seja flexível para os usuários mais versados.
-
-Objetivo imediato (v. 1.0):
-Permitir que seja criado e mantido um site simples apenas usando a interface gráfica da ferramenta. Um site simples é um site com o menu definido pelo usuário, sem geração automática de páginas, com fotos, vídeo, um layout pré-definido.
-
-
-
-
-Lista de pre-requisitos (v. 1.0):
- - O layout:
-Deve-se escolher dentre os feitos (CSS fixo) - inicialmente serão 2, um com o menu no topo e outro com o menu do lado (esquerdo).
-Após a escolha, o usuário deve escolher uma imagem para seu header, de tamanho dado (900x200, por exemplo). Se a imagem for maior que o especificado, ela será cortada antes de ser armazenada. Se for menor, deve ser exibida uma mensagem de erro.
-Todos os documentos relacionados ao layout ficam na pasta "Layout", automaticamente criada pelo sistema. As imagens, em particular, ficam numa pasta "Imagens", dentro dessa pasta.
-Deverá ser escolhida também uma cor (ou imagem - próxima versão - seja escolhida uma imagem, ela será repetida pelo fundo se ele for maior que o tamanho da imagem) para o fundo - essa cor pode ser escolhida de uma paleta ou dada em hexadecimal.
-
- - O menu:
-O menu será um fluxograma com no máximo dois níveis (inicialmente). Ele deve ter no máximo 6 itens (e isso vale para os submenus também).
-Confirmado o menu, o aplicativo deve criar TODAS as páginas relacionadas a ele automaticamente, incluindo o layout já escolhido.
-Caso exista uma mudança no menu que delete uma página, pedir a confirmação para o usuário.
-
- - Mídia:
-A mídia inicialmente será guardada pelo sistema na pasta "Fotos" ou na pasta "Vídeos". Para cada mídia, existirá também uma entrada em alguma das tabelas de mídia ("Fotos" ou "Vídeos") que contém as informações daquela mídia específica.
-Para fotos: legenda, URL completa, contagem de referência, (tags - próxima versão)
-Para vídeos: legenda, URL do youtube, título, thumbs, contagem de referência, (tags - próxima versão)
-Ao excluir alguma mídia que a contagem de referência seja diferente de 0, pedir a confirmação do usuário (e o que fazer - tirar automaticamente? Listar as páginas para o usuário tirar sozinho?).
-Por enquanto, o suporte a vídeos é só para o youtube.
-
- - Conteúdo:
-Uma vez que o layout esteja escolhido e o menu também, o usuário pode navegar pelo site de admin, que é uma versão parecida do site mesmo, só que tem botões de editar nas páginas (e o menu no topo, para poder entrar na parte de escolher o layout, mudar o menu, essas coisas).
-Quando o usuario clica num desses botões, a parte útil do site vira uma enorme caixa de texto (que continua mostrando mídias e galerias) e o usuário pode editar o conteúdo e salvar.
-Se o usuario tentar sair da página sem salvar (e tiver mudado algo), pedir por confirmação.
-
- - Galerias
-Galerias são conjuntos de fotos e conjuntos de vídeo. Cada galeria tem um título (único) e uma lista de identificadores de fotos ou vídeos. Não é possível misturar fotos e vídeos na mesma galeria. Galerias têm sua página própria de edição. Galerias DEVEM ter pelo menos uma foto, se não, elas são automaticamente deletadas.
-Fotos e vídeos já devem estar incluídos no banco para poderem ser usados em galerias
-
-
-/* Essa parte tem que ser retirada do trabalho final =) */
-Checklist (retirado do Code Complete, 2nd ed):
-
- - Specific Functional Requirements
-Are all the inputs to the system specified, including their source, accuracy, range of values, and frequency?Are all the outputs from the system specified, including their destination, accuracy, range of values, frequency, and format?Are all output formats specified for web pages, reports, and so on?Are all the external hardware and software interfaces specified? 
-Are all the external communication interfaces specified, including handshak-ing, error-checking, and communication protocols? 
-Are all the tasks the user wants to perform specified? 
-Is the data used in each task and the data resulting from each task specified?
-
- - Specific Non-Functional (Quality) Requirements
-Is the expected response time, from the user’s point of view, specified for all necessary operations?
-Are other timing considerations specified, such as processing time, data- transfer rate, and system throughput?Is the level of security specified?Is the reliability specified, including the consequences of software failure, the vital information that needs to be protected from failure, and the strategy for error detection and recovery?Is maximum memory specified?Is the maximum storage specified?Is the maintainability of the system specified, including its ability to adapt to changes in specific functionality, changes in the operating environment, and changes in its interfaces with other software?Is the definition of success included? Of failure?
-
- - Requirements QualityAre the requirements written in the user’s language? Do the users think so? Does each requirement avoid conflicts with other requirements?Are acceptable trade-offs between competing attributes specified—for ex- ample, between robustness and correctness?Do the requirements avoid specifying the design?Are the requirements at a fairly consistent level of detail? Should any re- quirement be specified in more detail? Should any requirement be specified in less detail?Are the requirements clear enough to be turned over to an independent group for construction and still be understood?Is each item relevant to the problem and its solution? Can each item be traced to its origin in the problem environment?Is each requirement testable? Will it be possible for independent testing to determine whether each requirement has been satisfied?Are all possible changes to the requirements specified, including the likeli- hood of each change?
-
- - Requirements CompletenessWhere information isn’t available before development begins, are the areas of incompleteness specified?Are the requirements complete in the sense that if the product satisfies every requirement, it will be acceptable?Are you comfortable with all the requirements? Have you eliminated re- quirements that are impossible to implement and included just to appease your customer or your boss?
