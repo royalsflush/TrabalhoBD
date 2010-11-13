@@ -4,8 +4,8 @@
 
 	if (empty($pageId)) $pageId = 'Index';	
 
-	require('lib/page.php');
-	require_once('lib/sql_db.php');
+	require('includes/page.php');
+	require_once('includes/sql_db.php');
 
 	$dbHandler = new SqlBD();	
 	$thisPage = new Page($pageId, $dbHandler);

@@ -13,7 +13,7 @@ srcOrg.txt: a brief note on what was I thinking when I organized the files in XM
 	</admin>
 
 	<includes>
-		<folder>jQuery</folder>
+		<file>jquery.js</file>
 		<file>menu.php</file>
 		<file>page.php</file>
 		<file>sql_db.php</file>
