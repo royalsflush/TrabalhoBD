@@ -1,0 +1,36 @@
+srcOrg.txt: a brief note on what was I thinking when I organized the files in XML
+
+<src>
+	<admin>
+		<file>menuEdit.php</file>
+		<file>layoutEdit.php</file>
+		<file>imageEdit.php</file>
+		<file>videoEdit.php</file>
+		<file>pageEdit.php</file>
+		<file>siteInfoEdit.php</file>
+		<file>login.php</file>
+		<file>logout.php</file>
+	</admin>
+
+	<includes>
+		<folder>jQuery</folder>
+		<file>menu.php</file>
+		<file>page.php</file>
+		<file>sql_db.php</file>
+		<file>template.inc</file>
+	</includes>
+
+	<layout>
+		<file>template.css</file>
+		<folder>blueprint</folder>
+	</layout>
+
+	<file>index.php</file>
+	<file>srcOrg.txt</file>
+</src>
+
+Explanations are good:
+ -> Things that end with 'Edit' are part of the admin site and use their fellows without
+'Edit' as tools
+ -> Though blueprint is an include, I preferred to put it on the layout folder, as it
+only affects layouts
