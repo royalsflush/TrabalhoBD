@@ -9,14 +9,27 @@
 	// 3. Replace some flags by the info from the database
 	// 4. Show the page
 
+
 	/* includes */
 	require_once("sql_db.php");
+	require_once("menu.php");
 
 	class Page {
+		// Receives the content from the database already formatted in XHTML 
 		private $content = NULL;
+
+		// Page's title (that appears between title tags)
 		private $title = NULL;
+
+		// Instance of a class that handles DB connections
 		private $dbHandler = NULL;
+
+		// Read from a pre-defined template file that has some special tags
+		// that will be replaced with user content - template.inc
 		private $template = NULL;
+
+		// Read from a file named menu.inc (in the includes folder)
+		private $menu = NULL;
 
 		private function getContentFromDB() {
 			$this->content = 'Hi!';

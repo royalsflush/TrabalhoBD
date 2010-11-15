@@ -1,0 +1,2 @@
+[13-Nov-2010 17:13:51] PHP Warning:  require_once(../lib/sql_db.php) [<a href='function.require-once'>function.require-once</a>]: failed to open stream: No such file or directory in /home/patomei/public_html/trabbd/admin/menuEdit.php on line 17
+[13-Nov-2010 17:13:51] PHP Fatal error:  require_once() [<a href='function.require'>function.require</a>]: Failed opening required '../lib/sql_db.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/patomei/public_html/trabbd/admin/menuEdit.php on line 17

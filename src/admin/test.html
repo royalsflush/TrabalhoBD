@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<!-- Charset declaration -->
+		<meta http-equiv="Content-type" content="text/html; charset=UTF-8" />			
+
+		<!-- Including blueprint framework (in the layout folder) -->
+		<link rel="stylesheet" type="text/css" href="../layout/blueprint/screen.css" media="screen, projection" />
+		<link rel="stylesheet" type="text/css" href="../layout/blueprint/print.css" media="print" />
+		<!--[if lt IE 8]><link rel="stylesheet" type="text/css" href="../layout/blueprint/ie.css" media="screen, projection" /><![endif]-->
+
+		<!-- jQuery UI CSS -->
+		<link type="text/css" href="../layout/ui-lightness/jquery-ui-1.8.6.custom.css" rel="stylesheet" />
+
+		<!-- Including our CSS-->
+		<link rel="stylesheet" type="text/css" href="../layout/template.css" media="screen" />
+
+		<!-- jQuery javascript files -->
+		<script src="../includes/jquery.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../includes/jquery-ui.js" type="text/javascript"></script>
+
+		<!-- Javascript code specific for this page -->
+		<script type="text/javascript">
+			function changeName(myform) {
+				$(myform).parent().append('<span>'+document.forms["thingy"]["pageNewName"].value+'</span>');
+				$(myform).remove();
+				return false;
+			}
+			
+			$( function() {
+				// To change the order of the pages
+				$( "ul.menu-list" ).sortable({
+					connectWith: "ul.menu-list",
+					receive: function(event, ui) {
+					
+					}
+				});
+				
+				// To support deletion of pages
+				$( ".page" ).draggable({
+					appendTo: 'body'
+				});
+
+				$( "#trash" ).droppable({
+					accept: '.page',
+					drop: function(event, ui) {
+						ui.draggable.remove();
+					}
+				})
+
+				// To support creation of pages
+				$( "#parent" ).draggable({
+					connectToSortable: "ul.menu-list",
+					appendTo: 'body',
+					helper: 'clone' 
+				});
+				$( "ul.menu-list, .page, #parent" ).disableSelection();
+	
+				// For the toolkit dialog
+				$( "#toolkit" ).dialog({
+					position: "right",
+   					beforeClose: function(event, ui) { return false; }
+				});
+
+				// Finally, renaming
+				$( ".page" ).live( 'dblclick', function() {
+					$(this).closest('.page').hide();
+					/*alert("That should be working!!\n");
+					var content = $(this).find('span').html();
+					$(this).find('span').remove();
+					$(this).closest('.page').append(
+						'<form name="thingy" onsubmit="return changeName(this)"> \
+							<input type="text" size="13" name="pageNewName" value="'+content+'" /> \
+							<input type="submit" class="hidd" /> \
+						</form> '
+					); */
+				});
+			});	
+		</script>
+		
+
+		<title>Menu Edit Page</title>		
+	</head>
+
+	<body>
+		<div class="container">
+			<div class="span-24 last" id="header">
+				<!-- that has to be the user header --> 
+			</div>  
+			<div class="span-24 last" id="menu">
+				<!-- and here, the user's menu -->
+			</div>
+			<div id="toolkit" title="And your toolkit" class="ui-dialog">
+				<p>Drag a page from here to one of the columns to create a new page</p>
+				<ul class="span-3 last">
+					<li id="parent"><span>New page</span></li>
+				</ul>
+				<br /><br /><br /><br />
+				<p>Double-click an existing page to rename it. After you're done, hit 'ENTER'</p> 
+				<p>Drag an existing page to this trash can to delete it</p>
+				<div id="trash" class="center">
+					<img src="../layout/images/trash-can.jpg" width="150" height="150" />
+				</div>
+			</div>
+			<div class="span-20 last prepend-2 append-2" id="main">  
+				<h2 class="center">Here's your menu:</h2>
+					
+				<div class="ment-cont">
+					<ul class="menu-list span-3">
+						<li class="page added"><span>Page 1</span></li>
+					</ul>
+					<ul class="menu-list span-3">
+					</ul>
+					<ul class="menu-list span-3">
+					</ul>
+
+					<ul class="menu-list span-3">
+					</ul>
+
+					<ul class="menu-list span-3">
+					</ul>
+
+					<ul class="menu-list span-3 last">
+					</ul>
+				</div>
+			</div>  
+		</div>
+	</body>
+</html>

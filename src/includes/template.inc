@@ -24,7 +24,7 @@ Last updated: 05/11/10 by Luiza
 	</head>
 
 	<body>
-		<div class="container showgrid">
+		<div class="container">
 			<div class="span-24" id="header">  
 				##HEADER_GOES_HERE##
 			</div>  

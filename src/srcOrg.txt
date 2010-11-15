@@ -14,6 +14,7 @@ srcOrg.txt: a brief note on what was I thinking when I organized the files in XM
 
 	<includes>
 		<file>jquery.js</file>
+		<file>jquery-ui.js</file>
 		<file>menu.php</file>
 		<file>page.php</file>
 		<file>sql_db.php</file>
@@ -22,6 +23,7 @@ srcOrg.txt: a brief note on what was I thinking when I organized the files in XM
 
 	<layout>
 		<file>template.css</file>
+		<folder>jquery-ui-lightness</folder>
 		<folder>blueprint</folder>
 	</layout>
 
