@@ -20,7 +20,7 @@
 		<!-- jQuery javascript files -->
 		<script src="../includes/jquery.js" type="text/javascript" charset="utf-8"></script>
 		<script src="../includes/jquery-ui.js" type="text/javascript"></script>
-
+		
 		<!-- Javascript code specific for this page -->
 		<script type="text/javascript">
 			function changeName(myform) {
@@ -33,15 +33,42 @@
 				// To change the order of the pages
 				$( "ul.menu-list" ).sortable({
 					connectWith: "ul.menu-list",
+					appendTo: 'body',
+					zIndex: 1010,
 					receive: function(event, ui) {
-					
-					}
-				});
-				
+						ui.item.replaceWith( "<li class='page'><span>New page</span></li>" );
+					},
+				});			
+	
 				// To support deletion of pages
 				$( ".page" ).draggable({
-					appendTo: 'body'
+					appendTo: 'body',
+					zIndex: 1010,
+					revert: 'invalid'
 				});
+
+				//The confirmation dialog code
+				var $dialog = $('<div></div>')
+					.html('<p>This page and all of its content will be deleted. Are you sure?</p>')
+					.dialog({
+						autoOpen: false,
+						title: 'Warning!',
+						modal: true,
+						height: 140,
+						resizable: false,
+						
+						buttons: {
+							"Delete it": function() {
+								$('body').data("confirm", true);
+								$(this).dialog("close");
+							},
+							Cancel: function() {
+								$('body').data("confirm", false);	
+								$(this).dialog("close");
+							}
+						}
+					});
+
 
 				$( "#trash" ).droppable({
 					accept: '.page',
@@ -54,28 +81,34 @@
 				$( "#parent" ).draggable({
 					connectToSortable: "ul.menu-list",
 					appendTo: 'body',
+					zIndex: 1010,
 					helper: 'clone' 
 				});
+
 				$( "ul.menu-list, .page, #parent" ).disableSelection();
 	
 				// For the toolkit dialog
 				$( "#toolkit" ).dialog({
 					position: "right",
-   					beforeClose: function(event, ui) { return false; }
+   					beforeClose: function(event, ui) { 
+						return false; 
+					}
 				});
 
 				// Finally, renaming
 				$( ".page" ).live( 'dblclick', function() {
-					$(this).closest('.page').hide();
-					/*alert("That should be working!!\n");
 					var content = $(this).find('span').html();
+					var str = $(this).find('span');
+					
+					if (str.length == 0) return;
+					
 					$(this).find('span').remove();
 					$(this).closest('.page').append(
 						'<form name="thingy" onsubmit="return changeName(this)"> \
 							<input type="text" size="13" name="pageNewName" value="'+content+'" /> \
 							<input type="submit" class="hidd" /> \
 						</form> '
-					); */
+					);
 				});
 			});	
 		</script>
@@ -109,7 +142,8 @@
 					
 				<div class="ment-cont">
 					<ul class="menu-list span-3">
-						<li class="page added"><span>Page 1</span></li>
+						<li class="page"><span>Page 1</span></li>
+						<li class="page"><span>Page n</span></li>
 					</ul>
 					<ul class="menu-list span-3">
 					</ul>

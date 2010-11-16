@@ -39,6 +39,45 @@ ul {
 	display: none;
 }
 
+/* Classes for the control panel */
+
+#cpTag {
+	background-color: green;
+	height: 25px;
+}
+
+#cpWrapper {
+	height: 145px;
+	border: 1px solid gray;
+	bottom: -120px;
+	overflow: hidden;
+	position: fixed;
+}
+
+#cpPanel {
+	height: 120px;
+	background-color: #eee;
+	display: none;
+}
+
+.cpButton {
+	background-color: white;
+	border: 1px solid gray;
+	float: left;
+	margin: 5px;
+	height: 100px;
+}
+
+#cpGlobalEdit {
+	
+}
+
+#cpLocalEdit {
+	
+}
+
+
+
 /* Classes for the menu edit part */
 
 .menu-cont {
