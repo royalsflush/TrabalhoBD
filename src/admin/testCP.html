@@ -30,10 +30,13 @@
 		<!-- Javascript code specific for this page -->
 		<script type="text/javascript">
 			$(function() {
-				$( "#cpTag" ).mouseenter( function() {
-					alert("Slide should happen now");
-					
+				$( "#cpTag, #cpPanel" ).mouseenter( function() {
+					$( "#cpWrapper" ).height(145);	
 				});
+				
+				$( "#cpPanel, #cpTag" ).mouseleave( function() {
+					$( "#cpWrapper" ).height(25);
+				}); 
 			});
 		</script>
 		

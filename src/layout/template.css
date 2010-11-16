@@ -30,7 +30,6 @@ body {
 	text-align: center;
 }
 
-
 ul {
 	list-style-type: none;
 }
@@ -47,17 +46,16 @@ ul {
 }
 
 #cpWrapper {
-	height: 145px;
+	height: 25px;
 	border: 1px solid gray;
-	bottom: -120px;
 	overflow: hidden;
 	position: fixed;
+	bottom: 0px;
 }
 
 #cpPanel {
 	height: 120px;
 	background-color: #eee;
-	display: none;
 }
 
 .cpButton {
