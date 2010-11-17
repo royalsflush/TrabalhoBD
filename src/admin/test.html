@@ -36,7 +36,8 @@
 					appendTo: 'body',
 					zIndex: 1010,
 					receive: function(event, ui) {
-						ui.item.replaceWith( "<li class='page'><span>New page</span></li>" );
+						var content = ui.item.text();
+						ui.item.replaceWith( "<li class='page'><span>"+content+"</span></li>" );
 					},
 				});			
 	
@@ -80,7 +81,7 @@
 					helper: 'clone' 
 				});
 
-				$( "ul.menu-list, .page, #parent" ).disableSelection();
+				$( "#parent" ).disableSelection();
 	
 				// For the toolkit dialog
 				$( "#toolkit" ).dialog({
@@ -98,12 +99,14 @@
 					if (str.length == 0) return;
 					
 					$(this).find('span').remove();
-					$(this).closest('.page').append(
-						'<form name="thingy" onsubmit="return changeName(this)"> \
-							<input type="text" size="13" name="pageNewName" value="'+content+'" /> \
+					$(this).append(
+						'<form name="thingy" onsubmit="return changeName(this)" action="test.html"> \
+							<input type="text" size="12" name="pageNewName" value="'+content+'" /> \
 							<input type="submit" class="hidd" /> \
 						</form> '
 					);
+
+					$(this).enableSelection();
 				});
 			});	
 		</script>
@@ -129,7 +132,7 @@
 				<p>Double-click an existing page to rename it. After you're done, hit 'ENTER'</p> 
 				<p>Drag an existing page to this trash can to delete it</p>
 				<div id="trash" class="center">
-					<img src="../layout/images/trash-can.jpg" width="150" height="150" />
+					<img src="../layout/images/trash-can.jpg" width="150" height="150" alt="trash-can" />
 				</div>
 			</div>
 			<div class="span-20 last prepend-2 append-2" id="main">  
