@@ -10,7 +10,7 @@ class SqlBD {
 		return "Erro #" . mysql_errno($this->con) . ": " . mysql_error($this->con);
 	}
 
-	function conecta() {
+	function connect() {
 
 		$this->con = mysql_connect('localhost', 'patomei_notroot', 'coisa123coisa');
 
@@ -56,7 +56,7 @@ class SqlBD {
 		return mysql_affected_rows($this->con);
 	}
 	
-	function iniciaTransacao () {
+	function transaction () {
 		if (!$this->numTransactions) {
 			$this->execSQLCmd("start transaction");
 		} else {
