@@ -66,15 +66,32 @@ ul {
 	height: 100px;
 }
 
-#cpGlobalEdit {
-	
+/* Classes for the menu */
+
+.menuParent {
+	background-color: red;
+	list-style-type: none;
+	margin: 0px;
+	padding: 0px;
 }
 
-#cpLocalEdit {
-	
+.menuParent li {
+	display: inline;
+	float: left;
+	margin: 0px;
 }
 
+.menuParent li a {
+	display: block;
+	width: 158px;
+	height: 60px;
+	text-align: center;
+	text-decoration: none;
+}
 
+.menuChild {
+	display: none;
+}
 
 /* Classes for the menu edit part */
 
